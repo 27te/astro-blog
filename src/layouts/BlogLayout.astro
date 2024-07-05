@@ -1,0 +1,19 @@
+---
+const { title, date, body } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{title}</title>
+  </head>
+  <body>
+    <article>
+      <h1>{title}</h1>
+      <time datetime={date}>{new Date(date).toLocaleDateString()}</time>
+      <div innerHTML={body}></div>
+    </article>
+  </body>
+</html>
