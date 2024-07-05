@@ -7,7 +7,6 @@ const post = await getEntryBySlug('blog', slug);
 if (!post) {
   throw new Error(`Post not found: ${slug}`);
 }
-export const prerender = true;
 ---
 
 <BlogLayout {...post.data} />

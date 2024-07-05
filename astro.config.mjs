@@ -1,10 +1,11 @@
 import { defineConfig } from 'astro/config';
-
 import mdx from '@astrojs/mdx';
+
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  output: 'server',
   integrations: [mdx()],
   content: {
     collections: {
@@ -12,11 +13,16 @@ export default defineConfig({
         schema: {
           type: 'post',
           frontmatter: {
-            title: { type: 'string' },
-            date: { type: 'date' },
+            title: {
+              type: 'string',
+            },
+            date: {
+              type: 'date',
+            },
           },
         },
       },
     },
   },
+  adapter: netlify(),
 });
